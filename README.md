@@ -13,7 +13,7 @@ Requires PowerShell. Tested on Windows and Linux, should work on MacOS.
 $ipv6Subnet = (iwr https://raw.githubusercontent.com/Jammrock/Get-AzPrivateIPv6Subnet/main/Get-AzPrivateIPv6Subnet.ps1 | iex)
 ```
 
-### Generate only the subnet address.
+### Filter out the subnet address
 
 ```PowerShell
 $ipv6Subnet = (iwr https://raw.githubusercontent.com/Jammrock/Get-AzPrivateIPv6Subnet/main/Get-AzPrivateIPv6Subnet.ps1 | iex) | % {$_.Split("`n")} | ? { $_ -match 'CID:' } | % {($_ -replace '\s+',',').split(',')[1] }
